@@ -1172,7 +1172,7 @@ img.logo-big {
 
 
     .play-video .text-circle {
-        transform: scale(1);
+        transform: scale(1)
         animation: playbuttonRotate 5s linear infinite;
         will-change: transform;
         backface-visibility: hidden;
@@ -1477,6 +1477,11 @@ img.logo-big {
 
     .main-menu ul {
         gap: 20px;
+    }
+
+    .etry-footer .down .icon {
+        width: 16px;
+        top: -3px;
     }
 }
 
