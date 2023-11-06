@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>German Film Festival</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/jquery.fancybox-1.3.4/jquery-1.4.3.min.js" media="all" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/image/fgc.png_256x256.ico" />
+    <script src="./assets/js/main.js"></script>
+    
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</head>
+
+<body class="main-home" style="background: url('assets/image/background.png') no-repeat top center/cover;">
+    
+    <header class="main-header" style="background: url('assets/image/background-mb.png') no-repeat top center/cover;">
+        <div class="container">
+            <div class="entry-header row-flex">
+                <div class="logo">
+                    <a href="#">
+                        <picture>
+                            <source media="(min-width: 768px)" src="assets/image/logo.png">
+                            <img src="assets/image/logo-mb.png" />
+                        </picture>
+                    </a>
+                </div>
+                <div class="wrap-main-menu">
+                    <div class="main-menu hide-mb">
+                        <ul>
+                            <li class="date-on">
+                                <p>11月17 - 26日</p>
+                                <span>Nov 17 - 26</span>
+                            </li>
+                            <li class="hover-text">
+                                <p>放映时间</p>
+                                <span>Screening schedule</span>
+                                <div class="menu-popup">
+                                    <img src="assets/image/QR-code-1.png" alt="QR">
+                                </div>
+                            </li>
+                            
+                            <li class="wechat hover-text">
+                                <p>微信公众号</p>
+                                <span>Wechat</span>
+                                <div class="menu-popup">
+                                    <img src="assets/image/wechat-qr-code.png" alt="QR">
+                                </div>
+                            </li>
+                            
+                            <li class="down">
+                                <a href="assets/image/2023-FGC-brochure-dinglepage.pdf"
+                                    download="2023 FGC-brochure dingle page.pdf">
+                                    <div class="icon">
+                                        <img src="assets/image/icon-down.png" alt="">
+                                    </div>
+                                    <p>宣传页下载</p>
+                                    <span>Download Flyer</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="play-video" onclick="playVid()">
+                        <!-- <a class="video-popup" data-fancybox href="assets/image/banner-mb.jpg"> -->
+                        <div class="icon">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="assets/image/icon-play.png">
+                                <source media="(min-width: 481px)" srcset="assets/image/icon-play-mb.png">
+                                <img src="assets/image/icon-play-mb.png" />
+                            </picture>
+                        </div>
+                        <div class="text-circle">
+                            <picture>
+                                <source media="(min-width: 768px)" srcset="assets/image/Playtrailer.png">
+                                <source media="(min-width: 481px)" srcset="assets/image/Playtrailer.png">
+                                <img src="assets/image/Playtrailer.png" />
+                            </picture>
+                        </div>
+                        <!-- </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="video-poster" id="video-poster">
+        <div class="close-button" onclick="pauseVid()">
+            <svg class="icon" width="16" height="16">
+                <g stroke="#FFF" fill="none" fill-rule="evenodd">
+                    <path d="M1 1l14.142 14.142M15.142 1L1 15.142"></path>
+                </g>
+            </svg>
+        </div>
+        <video id="myVideo" class="youtube-video" width="320" height="240" controls>
+            <source src="assets/image/2023FGCtrailer.mp4" type="video/mp4">
+        </video>
+        <!-- <iframe class="youtube-video" width="100%" height="auto" src="https://www.youtube.com/embed/LgGBvCh6ULo?enablejsapi=1&amp;version=3&amp;playerapiid=ytplayer" modestbranding="0" controls="0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
+    </div>
+    <footer id="footer" class="footer-pc">
+        <div class="container">
+            <div class="etry-footer top-footer">
+                <div class="date-on-mb">
+                    <p>11月17 - 26日</p>
+                    <span>Nov 17 - 26</span>
+                    </div>
+                <div class="down show-mb">
+                    <a href="assets/image/2023-FGC-brochure-dinglepage.pdf" download="2023 FGC-brochure dingle page.pdf">
+                        <div class="icon">
+                            <picture>
+                                <source media="(min-width: 481px)" srcset="assets/image/icon-down-mb.png">
+                                <img src="assets/image/icon-down-mb.png" />
+                            </picture>
+                        </div>
+                        <p>宣传页下载</p>
+                        <span>Download Flyer</span>
+                    </a>
+                </div>
+                <div class="left-footer">
+                    <div class="left-footer-orga">
+                        <p>主办机构 <span>Organised by</span></p>
+                        <div class="logos organised ">
+                            <a class="logo-or-1"  href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/logo1.png">
+                                    <img src="assets/image/logo-footer-1.png" />
+                                </picture>
+                            </a>
+                            <a class="logo-or-2" href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/logo2.png">
+                                    <img src="assets/image/logo-footer-2.png" />
+                                </picture>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="left-footer-support">
+                        <p>支持方 <span>Supported by</span></p>
+                        <div class="logos supported">
+                            <a href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/supported.png">
+                                    <img src="assets/image/supported.png" />
+                                </picture>
+                            </a>
+                            <a href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/supported-2.png">
+                                    <img src="assets/image/supported-2.png" />
+                                </picture>
+                            </a>
+                            <a href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/logo-fa.png">
+                                    <img class="logo-fa" src="assets/image/logo-fa.png" />
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="main-menu show-mb">
+                    <ul>
+                        <li>
+                            <div class="text">
+                                <p>放映时间</p>
+                                <span>Screening schedule</span>
+                            </div>
+                            <div class="menu-popup">
+                                <img src="assets/image/QR-code-1.png" alt="QR">
+                            </div>
+                        </li>
+                        
+                        <li class="wechat">
+                            <div class="text">
+                                <p>微信公众号</p>
+                                <span>Wechat</span>
+                            </div>
+                            <div class="menu-popup">
+                                <img src="assets/image/wechat-qr-code.png" alt="QR">
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="brand-footer-mb ">
+                    <div class="brand-row-1">
+                        <div class="brand-logo-wrap logo-1">
+                            <img src="./assets/image/logo-1-white.png"" class=" brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-2">
+                            <img src="./assets/image/logo-2.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-3">
+                            <img src="./assets/image/logo-3.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-4">
+                            <img src="./assets/image/logo-4.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-5">
+                            <img src="./assets/image/logo-5.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-6">
+                            <img src="./assets/image/logo-6.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-7">
+                            <img src="./assets/image/logo-7.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-8">
+                            <img src="./assets/image/logo-8.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-9">
+                            <img src="./assets/image/logo-9.png" alt="" class="brand-logo">
+                        </div>
+                    </div>
+                    <div class="brand-row-2">
+                        <div class="brand-logo-wrap logo-10">
+                            <img src="./assets/image/logo-10.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-11">
+                            <img src="./assets/image/logo-11.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-12">
+                            <img class="logo-big" src="./assets/image/logo-12.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-13">
+                            <img class="logo-big-2" src="./assets/image/logo-13.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-14">
+                            <img src="./assets/image/logo-14.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-15">
+                            <img src="./assets/image/logo-15.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-16">
+                            <img src="./assets/image/logo-16.png" alt="" class="brand-logo">
+                        </div>
+                        <div class="brand-logo-wrap logo-17">
+                            <img src="./assets/image/logo-17.png" alt="" class="brand-logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="right-footer">
+                    <div class="inner">
+                        <p>Copyright: Komplizen Film</p>
+                        <div class="item">
+                            <p>2023年德国电影展由德国电影协会和北京德国文化中心 • 歌德学院（中国）联合举办</p>
+                            <p>The Festival of German Cinema in China 2023 is presented by German Films and the Goethe-Institut China</p>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="brand-footer">
+                <div class="brand-row-1">
+                    <div class="brand-logo-wrap logo-1">
+                        <img src="./assets/image/logo-1-white.png"" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-2">
+                        <img src="./assets/image/logo-2.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-3">
+                        <img src="./assets/image/logo-3.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-4">
+                        <img src="./assets/image/logo-4.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-5">
+                        <img src="./assets/image/logo-5.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-6">
+                        <img src="./assets/image/logo-6.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-7">
+                        <img src="./assets/image/logo-7.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-8">
+                        <img src="./assets/image/logo-8.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-9">
+                        <img src="./assets/image/logo-9.png" alt="" class="brand-logo">
+                    </div>
+                </div>    
+                <div class="brand-row-2">
+                    <div class="brand-logo-wrap logo-10">
+                        <img src="./assets/image/logo-10.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-11">
+                        <img src="./assets/image/logo-11.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-big logo-12">
+                        <img  src="./assets/image/logo-12.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-big-2 logo-13">
+                        <img src="./assets/image/logo-13.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-14 ">
+                        <img src="./assets/image/logo-14.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-15">
+                        <img src="./assets/image/logo-15.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-16">
+                        <img src="./assets/image/logo-16.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-17">
+                        <img src="./assets/image/logo-17.png" alt="" class="brand-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <footer id="footer" class="footer-mb">
+        <div class="container">
+            <div class="etry-footer top-footer">
+                <div class="date-on-mb">
+                    <p>11月17 - 26日</p>
+                    <span>Nov 17 - 26</span>
+                </div>
+                <div class="down show-mb">
+                    <a href="assets/image/2023-FGC-brochure-dinglepage.pdf" download="2023 FGC-brochure dingle page.pdf">
+                        <div class="icon">
+                            <picture>
+                                <source media="(min-width: 481px)" srcset="assets/image/icon-down-mb.png">
+                                <img src="assets/image/icon-down-mb.png" />
+                            </picture>
+                        </div>
+                        <p>宣传页下载</p>
+                        <span>Download Flyer</span>
+                    </a>
+                </div>
+                <div class="main-menu show-mb">
+                    <ul>
+                        <li>
+                            <div class="text">
+                                <p>放映时间</p>
+                                <span>Screening schedule</span>
+                            </div>
+                            <div class="menu-popup">
+                                <img src="assets/image/QR-code-1.png" alt="QR">
+                            </div>
+                        </li>
+                        
+                        <li class="wechat">
+                            <div class="text">
+                                <p>微信公众号</p>
+                                <span>Wechat</span>
+                            </div>
+                            <div class="menu-popup">
+                                <img src="assets/image/wechat-qr-code.png" alt="QR">
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+        
+                <div class="left-footer">
+                    <div class="left-footer-orga">
+                        <p>主办机构 <span>Organised by</span></p>
+                        <div class="logos organised ">
+                            <a class="logo-or-1"  href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/logo1.png">
+                                    <img src="assets/image/logo-footer-1.png" />
+                                </picture>
+                            </a>
+                            <a class="logo-or-2" href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/logo2.png">
+                                    <img src="assets/image/logo-footer-2.png" />
+                                </picture>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="left-footer-support">
+                        <p>支持方 <span>Supported by</span></p>
+                        <div class="logos supported">
+                            <a href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/supported.png">
+                                    <img src="assets/image/supported.png" />
+                                </picture>
+                            </a>
+                            <a href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/supported-2.png">
+                                    <img src="assets/image/supported-2.png" />
+                                </picture>
+                            </a>
+                            <a href="#">
+                                <picture>
+                                    <source media="(min-width: 768px)" srcset="assets/image/logo-fa.png">
+                                    <img class="logo-fa" src="assets/image/logo-fa.png" />
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-footer-mb ">
+                <div class="brand-row-1">
+                    <div class="brand-logo-wrap logo-1">
+                        <img src="./assets/image/logo-1-white.png"" class=" brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-2">
+                        <img src="./assets/image/logo-2.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-3">
+                        <img src="./assets/image/logo-3.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-4">
+                        <img src="./assets/image/logo-4.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-5">
+                        <img src="./assets/image/logo-5.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-6">
+                        <img src="./assets/image/logo-6.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-7">
+                        <img src="./assets/image/logo-7.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-8">
+                        <img src="./assets/image/logo-8.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-9">
+                        <img src="./assets/image/logo-9.png" alt="" class="brand-logo">
+                    </div>
+                </div>
+                <div class="brand-row-2">
+                    <div class="brand-logo-wrap logo-10">
+                        <img src="./assets/image/logo-10.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-11">
+                        <img src="./assets/image/logo-11.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-12">
+                        <img class="logo-big" src="./assets/image/logo-12.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-13">
+                        <img class="logo-big-2" src="./assets/image/logo-13.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-14">
+                        <img src="./assets/image/logo-14.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-15">
+                        <img src="./assets/image/logo-15.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-16">
+                        <img src="./assets/image/logo-16.png" alt="" class="brand-logo">
+                    </div>
+                    <div class="brand-logo-wrap logo-17">
+                        <img src="./assets/image/logo-17.png" alt="" class="brand-logo">
+                    </div>
+                </div>
+            <div class="right-footer">
+                <div class="inner">
+                    <p>Copyright: Komplizen Film</p>
+                    <div class="item">
+                        <p>2023年德国电影展由德国电影协会和北京德国文化中心 • 歌德学院（中国）联合举办</p>
+                        <p>The Festival of German Cinema in China 2023 is presented by German Films and the Goethe-Institut China</p>
+                    </div>
+                    
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.fancybox-1.3.4/jquery-1.4.3.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+
+        var vid = document.getElementById("myVideo");
+        function playVid() {
+            vid.play();
+        }
+
+        function pauseVid() {
+            vid.pause();
+        } 
+    </script>
+</body>
+
+</html>
